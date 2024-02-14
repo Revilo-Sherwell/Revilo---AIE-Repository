@@ -1,6 +1,8 @@
 
 #include <iostream>
 #include "String.h"
+#include <stdio.h>
+#include <ctype.h>
 using namespace std;
 
 
@@ -38,13 +40,12 @@ Stringutil::~Stringutil()
 
 int Stringutil::Length()
 {
-
 	return strlen(m_str);
-
 }
 
-char Stringutil::CharacterAt(size_t _index) {
-	if (_index < 0 || _index > this->Length()) return '\0';
+char Stringutil::CharacterAt(size_t _index)
+{
+	if (_index < 0 || _index >this->Length()) return '\0';
 	else return m_str[_index];
 }
 
@@ -53,8 +54,7 @@ bool Stringutil::EqualTo(Stringutil st)
 	if (strcmp(st.m_str, m_str) == 0) {
 		return true;
 	}
-	else
-	{
+	else{
 		return false;
 	}	
 }
@@ -78,17 +78,38 @@ void Stringutil::Prpend(const Stringutil& other)
 	strcpy_s(firstpart, Strfill, other.m_str);
 	strcat_s(firstpart, Strfill, m_str);
 
-	
-
 	delete[] m_str;
 	m_str = firstpart;
-
 }
 
-char* Stringutil::CStr()
+void Stringutil::Thetolower()
 {
-	return m_str;
-	
+	int i = 0;
+	while (m_str[i]){
+			m_str[i] = (tolower(m_str[i]));
+			i++;
+	}
 }
 
+void Stringutil::Thetoupper()
+{
+	int i = 0;
+	while (m_str[i]) {
+		m_str[i] = (toupper(m_str[i]));
+		i++;
+	}
+}
 
+void Stringutil::Writetoconsole()
+{
+	std::cout << m_str << std::endl;
+}
+
+void Stringutil::ReadFromConsole()
+{
+	cin >> m_str;
+}
+
+char* Stringutil::CStr(){
+	return m_str;
+}

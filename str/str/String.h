@@ -14,6 +14,10 @@ public:
 	bool EqualTo(Stringutil st);
 	void Append(const Stringutil& other);
 	void Prpend(const Stringutil& other);
+	void Thetolower();
+	void Thetoupper();
+	void Writetoconsole();
+	void ReadFromConsole();
 	char* CStr();
 
 private:
