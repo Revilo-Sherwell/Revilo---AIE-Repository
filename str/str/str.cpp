@@ -10,29 +10,37 @@ int main()
 {
 	// Picking What Num To Look at In the Data
 	int index = 0;
-	cout << "give a num";
+	cout << "give a num For the Letter In the Word ";
 	cin >> index;
+	cout << " " << endl;
 
-	// Setting all the data
 	Stringutil st("Hello ");
 	Stringutil st2("World");
+	cout << " " << endl;
+	cout << "The Number You Pick Go With the Letter: " << st.CharacterAt(index) << endl;
+	cout << "Your Word is :" << st.Length() << " Letters Long" << endl;
+	cout << "You Have :" << st.EqualTo(st2) << " Matching Words" << endl;
+
 	st.Append(st2);
+	cout << st.find("hello world") << endl;
+	st.Replace("Hello", "TOD");
+	cout << " " << endl;
+
+	cout << "Added World To the Frount Of the Word" << endl;
 	st.Prpend(st2);
-
-	// Print All The Data to The Screen
-	cout << st.Length() << std::endl;
-	cout << st.EqualTo(st2) << endl;
-	cout << st.CStr() << std::endl;
-	cout << "Your Letter is " << st.CharacterAt(index) << std::endl;
-
+	st.Writetoconsole();
+	
+	cout << " " << endl;
+	cout << "Upper Cased All the Letters" << endl;
 	st.Thetoupper();
 	st.Writetoconsole();
 
+	cout << " " << endl;
+	cout << "Lower Cased All the Letters" << endl;
 	st.Thetolower();
 	st.Writetoconsole();
 
+	cout << "Type Somthing into Console To Change The String " << endl;
 	st.ReadFromConsole();
 	st.Writetoconsole();
-
-
 } 
