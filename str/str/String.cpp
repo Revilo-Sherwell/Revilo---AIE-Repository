@@ -10,13 +10,12 @@ Stringutil::Stringutil() {
 	m_str = new char[] {"Hello World"};
 }
 
-Stringutil::Stringutil(const char* c){
+Stringutil::Stringutil(const char* c) {
 	m_str = new char[(strlen(c)) + 1]; // size of string 
 	strcpy_s(m_str, (strlen(c)) + 1, c);
 
 	cout << c;
 }
-
 Stringutil::Stringutil(Stringutil& st){
 	m_str = new char[(strlen(st.m_str)) + 1];
 	strcpy_s(m_str, (strlen(st.m_str)) + 1, st.m_str);	

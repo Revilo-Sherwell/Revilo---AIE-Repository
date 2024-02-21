@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "String.h"
+#include <fstream>
 
 
 using namespace std;
@@ -8,6 +9,28 @@ using namespace std;
 
 int main()
 {
+	fstream file;
+	file.open("StringData.txt", ios::out);
+	if (file.is_open()) {
+		cout << "File is Open!" << "\n\n";
+		file << "Data Saved" << "\n\n";
+
+	}
+	struct tm newtime;
+	time_t now = time(0);
+	localtime_s(&newtime, &now);
+	int sec = newtime.tm_sec;
+	int minute = newtime.tm_min;
+	int hour = newtime.tm_hour;
+	int day = newtime.tm_mday;
+	int month = 1 + newtime.tm_mon;
+	int year = newtime.tm_year;
+	file << "-----------------------------------"  << endl;
+	file << "The Time is " << hour << ":" << minute << " and " << sec << " Seconds..." << endl;
+	file << "The Date is " << day << "/" << month << "/" << year + 1900 << endl;
+	file << "-----------------------------------" << endl;
+
+
 	// Picking What Num To Look at In the Data
 	int index = 0;
 	cout << "give a num For the Letter In the Word ";
@@ -51,5 +74,5 @@ int main()
 	st.ReadFromConsole();
 	st.Writetoconsole();
 
-
+	file.close();
 } 
