@@ -60,38 +60,31 @@ bool Stringutil::CompaereAt(int index,const char* c)
 }
 char* Stringutil::Replace(const char* c, const char* newCharacters)
 {
-	cout << "Before: " << CStr() << endl;
-	cout << "Replacing \"" << c << "\" With \"" << newCharacters << "\"" << endl;
-
-	while (StartIndexfindString(0, c) != -1) {
+	while (find(c) != -1) {
 
 		int NewLength = Length() - strlen(c) + strlen(newCharacters) + 1;
 		char* TempArray = new char[NewLength];
-		int location = StartIndexfindString(0, c);
+		TempArray[NewLength - 1] = '\0';
+
+		int location = find(c);
 
 		for (int i = 0; i < location; i++) {
 			TempArray[i] = m_str[i];
 		}
 
-		if (Length() < NewLength) {
-			for (int i = NewLength - 1; i > location + strlen(c); i--) {
-				TempArray[i - 1] = m_str[(i + strlen(c) - strlen(newCharacters) - 1)];
-			}
-			TempArray[NewLength - 1] = '\0';
+		for (int i = 0; i < strlen(newCharacters); i++)
+		{
+			TempArray[location + i] = newCharacters[i];
 		}
 
-		int replacementCharNum = 0;
-		for (int i = location; i < location + strlen(newCharacters); i++) {
-			TempArray[i] = newCharacters[replacementCharNum];
-			replacementCharNum++;
-		}
-
-		if (Length() > NewLength) {
-			for (int i = replacementCharNum; i < NewLength; i++) {
+		for (int i = location + strlen(newCharacters); i < NewLength; i++) {
+			if (TempArray[i] != '\0') {
 				TempArray[i] = m_str[(i + strlen(c) - strlen(newCharacters))];
 			}
 		}
+
 		delete[] m_str;
+
 		m_str = TempArray;
 	}
 	return m_str;
@@ -196,7 +189,7 @@ bool Stringutil::operator<(const Stringutil& other)
 	return false;
 }
 
-char Stringutil::operator[](size_t& other)
+char Stringutil::operator[](const size_t& other)
 {
 	return CharacterAt(other);
 }

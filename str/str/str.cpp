@@ -40,7 +40,16 @@ int main()
 	st.Thetolower();
 	st.Writetoconsole();
 
+	
+	cout << (st == st2) << endl;
+	cout << (st < st2) << endl;
+	cout << st[3] << endl;
+	st = st2;
+	cout << st.CStr() << endl;
+
 	cout << "Type Somthing into Console To Change The String " << endl;
 	st.ReadFromConsole();
 	st.Writetoconsole();
+
+
 } 

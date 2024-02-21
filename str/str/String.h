@@ -11,6 +11,7 @@ public:
 public:
 	int Length();
 	int StartIndexfindString(size_t _startindex,const char* c);
+	int StartIndexfindtring(size_t _startindex,const char* c);
 	int find(const char* c);
 
 	char CharacterAt(size_t _index);
@@ -31,7 +32,7 @@ public:
 public:
 	bool operator==(const Stringutil& other);
 	bool operator<(const  Stringutil& other);
-	char operator[](size_t& other);
+	char operator[](const size_t& other);
 	void operator=(const Stringutil& other);
 
 	
