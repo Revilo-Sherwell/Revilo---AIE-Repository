@@ -1,0 +1,40 @@
+Data Saved
+
+-----------------------------------
+The Time is 10:10 and 15 Seconds...
+The Date is 22/2/2024
+-----------------------------------
+give a num For the Letter In the Word 1 
+Length() is False 
+The Number You Pick Go With the Letter: e
+Your Word is :6 Letters Long
+You Have :0 Matching Words
+-----------------------------------
+Hello World-1
+-----------------------------------
+TOD World
+-----------------------------------
+Added World To the Frount Of the Word
+WorldTOD World
+-----------------------------------
+Upper Cased All the Letters
+WORLDTOD WORLD
+-----------------------------------
+ 
+Lower Cased All the Letters
+worldtod world
+-----------------------------------
+All The Operators
+0
+1
+l
+worldtod world
+
+-----------------------------------
+Type Somthing into Console To Change The String 
+1
+
+
+-----------------------------------
+file Closed !!
+-----------------------------------

@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
 	fstream file;
-	file.open("StringData.txt", ios::out);
+	file.open("../StringData.txt", ios::out);
 	if (file.is_open()) {
 		cout << "File is Open!" << "\n\n";
 		file << "Data Saved" << "\n\n";
@@ -31,48 +31,100 @@ int main()
 	file << "-----------------------------------" << endl;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 	// Picking What Num To Look at In the Data
 	int index = 0;
+	cout << "Your Word Is Hello World" << endl;
+	file << "give a num For the Letter In the Word ";
 	cout << "give a num For the Letter In the Word ";
 	cin >> index;
-	cout << " " << endl;
+	file << index;
+	file << " " << endl;
+	
+
+	float SeccsfulRate = 0;
 
 	Stringutil st("Hello ");
 	Stringutil st2("World");
-	cout << " " << endl;
-	cout << "The Number You Pick Go With the Letter: " << st.CharacterAt(index) << endl;
-	cout << "Your Word is :" << st.Length() << " Letters Long" << endl;
-	cout << "You Have :" << st.EqualTo(st2) << " Matching Words" << endl;
+
+	file << "-----------------------------------" << endl;
+	file << "All The True And False" << endl;
+	if (st.Length() == 7){
+
+		cout << "Length() is True" << endl;
+		SeccsfulRate++;
+	}
+	else file << "Length() is False" << endl;
+
+	if (st.CharacterAt() 1 == 'H') {
+		file << "CharacterAt() is True" << endl;
+		SeccsfulRate++;
+	}
+	else file << "CharacterAt() is True" << endl;
+	file << "-----------------------------------" << endl;
+
+
+
+	file << " " << endl;
+	file << "The Number You Pick Go With the Letter: " << st.CharacterAt(index) << endl;
+	file << "Your Word is :" << st.Length() << " Letters Long" << endl;
+	file << "You Have :" << st.EqualTo(st2) << " Matching Words" << endl;
+	file << "-----------------------------------" << endl;
 
 	st.Append(st2);
-	cout << st.find("hello world") << endl;
+	file << st.CStr();
+	file << st.find("Hello world") << endl;
+	file << "-----------------------------------" << endl;
+
 	st.Replace("Hello", "TOD");
-	cout << " " << endl;
+	file << st.CStr();
+	file << "\n-----------------------------------" << endl;
 
-	cout << "Added World To the Frount Of the Word" << endl;
+	file << "Added World To the Frount Of the Word" << endl;
 	st.Prpend(st2);
-	st.Writetoconsole();
-	
-	cout << " " << endl;
-	cout << "Upper Cased All the Letters" << endl;
+	file << st.CStr();
+	file << "\n-----------------------------------" << endl;
+
+	file << "Upper Cased All the Letters" << endl;
 	st.Thetoupper();
-	st.Writetoconsole();
-
-	cout << " " << endl;
-	cout << "Lower Cased All the Letters" << endl;
+	file << st.CStr();
+	file << "\n-----------------------------------" << endl;
+	file << " " << endl;
+	file << "Lower Cased All the Letters" << endl;
 	st.Thetolower();
-	st.Writetoconsole();
-
+	file << st.CStr();
+	file << "\n-----------------------------------" << endl;
+	file << "All The Operators\n";
 	
-	cout << (st == st2) << endl;
-	cout << (st < st2) << endl;
-	cout << st[3] << endl;
+	file << (st == st2) << endl;
+	file << (st < st2) << endl;
+	file << st[3] << endl;
 	st = st2;
-	cout << st.CStr() << endl;
+	file << st.CStr() << endl;
+	file << "\n-----------------------------------" << endl;
 
-	cout << "Type Somthing into Console To Change The String " << endl;
+	cout << "\nType Somthing into Console To Change The String " << endl;
+	file << "Type Somthing into Console To Change The String " << endl;
 	st.ReadFromConsole();
 	st.Writetoconsole();
+	file << st.CStr() << endl;
+	file << "\n\n-----------------------------------" << endl;
+	file << "file Closed !!" << endl;
+	file << "-----------------------------------" << endl;
 
+	cout << "-----------------------------------" << endl;
+	cout << "All the Data Have been Save To The Text File" << endl;
+	cout << "-----------------------------------" << endl;
 	file.close();
 } 
