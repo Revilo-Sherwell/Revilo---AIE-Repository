@@ -2,10 +2,15 @@
 #include "MapGen.h"
  
 using namespace std;
+int x;
 
 int main()
 {
-	MapGen();
+	while (true) {
+		MapGen();
+		cin >> x;
+	}
+	
 	
 	
 	

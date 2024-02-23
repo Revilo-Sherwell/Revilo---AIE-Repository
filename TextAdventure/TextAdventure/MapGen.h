@@ -3,12 +3,12 @@ class MapGen
 {
 public:
 	MapGen();
-	
 	~MapGen();
 
 public:
 	void MapSetup();
 	void MapGenMathSetup(int m_len, int m_wid);
+	//void ResetScreen();
 
 
 	char RoomSize[15][15];
