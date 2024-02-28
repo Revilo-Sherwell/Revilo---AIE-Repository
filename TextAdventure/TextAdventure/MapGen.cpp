@@ -35,35 +35,25 @@ void MapGen::MapSetup()
 
 void MapGen::MapGenMathSetup(int m_len, int m_wid)
 {
-	int RoomStyle;
-	
 	int spawnamount = 3;
 
 	RoomStyle = 0;
 
 
-
-
-	int min_x;//top left minimum, bottom right maximum
-	int min_y;
-	int max_x;
-	int max_y;
-	char fillCharacter = '*';
-
-
 	for (int i = 0; i < m_len; i++) {
-		RoomSize[i][0] = '\xBA';
-		RoomSize[i][m_len - 1] = '\xBA';
-		RoomSize[0][i] = '\xCD';
-		RoomSize[m_len - 1][i] = '\xCD';
-	}
+		RoomSize[i][0] = '\xDB';
+		RoomSize[i][m_len - 1] = '\xDB';
+		RoomSize[0][i] = '\xDB';
+		RoomSize[m_len - 1][i] = '\xDB';
 
+	}
 
 	for (int height = 1; height < m_len - 1; height++) {
 		for (int width = 1; width < m_wid - 1; width++) {
 			RoomSize[height][width] = '1';
 		}
 	}
+
 
 	if (StartingZone == true) {
 		RoomStyle = 0;
@@ -75,6 +65,136 @@ void MapGen::MapGenMathSetup(int m_len, int m_wid)
 		RoomStyle = rand() % 5 + 1;
 	}
 
+	LevelMaps();
+
+
+	for (int x = min_x; x <= max_x; x++) {
+		for (int y = min_y; y <= max_y; y++) {
+			RoomSize[x][y] = fillCharacter;
+		}
+	}
+
+	for (int height = 0; height < m_len; height++) {
+		for (int width = 0; width < m_wid; width++) {
+		}
+		cout << endl;
+	}
+
+	
+	//Auto added The Spaces Between the Path And the grass
+	//This Code Comes From the left to right
+	for (int height = 0; height < m_len; height++) {
+		for (int width = 0; width < m_wid; width++) {
+			if (RoomSize[height][width + 1] == '*') {
+				if (RoomSize[height][width] == '*') {
+				}
+				else
+				{
+					RoomSize[height][width] = 'x';
+				}
+
+			}
+		}
+		cout << endl;
+	}
+
+	//this one come left to right
+	for (int height = 0; height < m_len; height++) {
+		for (int width = 0; width < m_wid; width++) {
+			if (RoomSize[height][width + -1] == '*') {
+				if (RoomSize[height][width] == '*') {
+				}
+				else
+				{
+					RoomSize[height][width] = 'x';
+				}
+
+			}
+		}
+		cout << endl;
+	}
+
+	//this one comes from top to bottem
+	for (int height = 0; height < m_len; height++) {
+		for (int width = 0; width < m_wid; width++) {
+			if (RoomSize[height + 1][width] == '*') {
+				if (RoomSize[height][width] == '*') {
+				}
+				else
+				{
+					RoomSize[height][width] = 'x';
+				}
+
+			}
+		}
+		cout << endl;
+	}
+	// this one comes bottem to top
+	for (int height = 0; height < m_len; height++) {
+		for (int width = 0; width < m_wid; width++) {
+			if (RoomSize[height + -1][width] == '*') {
+				if (RoomSize[height][width] == '*') {
+				}
+				else
+				{
+					RoomSize[height][width] = 'x';
+				}
+
+			}
+
+		}
+		cout << endl;
+	}
+
+	for (int height = 0; height < m_len; height++) {
+		for (int width = 0; width < m_wid; width++) {
+			if (RoomSize[height][width] == 'x') {
+				RoomSize[height][width] = ' ';
+			}
+
+			cout << " " << RoomSize[height][width];
+		}
+		cout << endl;
+	}
+	RoomSize[xpos][ypos] = PlayerSymbol;
+	ClsRest();
+	cout << endl;
+	srand(time(NULL));
+	for (int height = 0; height < m_len; height++) {
+		for (int width = 0; width < m_wid; width++) {
+			if (RoomSize[height][width] == '1') {
+				RoomSpawnRate = rand() % 15 + 1;
+				if (RoomSpawnRate == 1) {
+					RoomSize[height][width] = RoomSpawnRate;//'!';
+				}
+				else {
+					RoomSize[height][width] = ' ';
+				}
+				
+			}
+			cout << " " << RoomSize[height][width];
+
+		}
+		cout << endl;
+	}
+	//Worldmap(15, 25);
+}
+
+void MapGen::Worldmap(int m_len, int w_wid)
+{
+	cout << endl;
+	for (int hight = 0; hight < m_len; hight++) {
+		for (int width = 0; width < w_wid; width++) {
+			worldMap[hight][width] = '1';
+			cout << " " << worldMap[hight][width];
+		}
+		cout << endl;
+	}
+}
+
+void MapGen::LevelMaps()
+{
+	cout << "Running" << endl;
 	switch (RoomStyle)
 	{
 	case(0):
@@ -221,6 +341,15 @@ void MapGen::MapGenMathSetup(int m_len, int m_wid)
 		max_x = 8;
 		max_y = 9;
 
+		for (int x = min_x; x <= max_x; x++) {
+			for (int y = min_y; y <= max_y; y++) {
+				RoomSize[x][y] = fillCharacter;
+			}
+		}
+		min_x = 7;
+		min_y = 7;
+		max_x = 7;
+		max_y = 7;
 		break;
 
 	case(1):
@@ -358,113 +487,11 @@ void MapGen::MapGenMathSetup(int m_len, int m_wid)
 
 
 
-
-
-	for (int x = min_x; x <= max_x; x++) {
-		for (int y = min_y; y <= max_y; y++) {
-			RoomSize[x][y] = fillCharacter;
-		}
-	}
-
-	for (int height = 0; height < m_len; height++) {
-		for (int width = 0; width < m_wid; width++) {
-		}
-		cout << endl;
-	}
-
-
-	//Auto added The Spaces Between the Path And the grass
-	//This Code Comes From the left to right
-	for (int height = 0; height < m_len; height++) {
-		for (int width = 0; width < m_wid; width++) {
-			if (RoomSize[height][width + 1] == '*') {
-				if (RoomSize[height][width] == '*') {
-				}
-				else
-				{
-					RoomSize[height][width] = 'x';
-				}
-
-			}
-		}
-		cout << endl;
-	}
-
-	//this one come left to right
-	for (int height = 0; height < m_len; height++) {
-		for (int width = 0; width < m_wid; width++) {
-			if (RoomSize[height][width + -1] == '*') {
-				if (RoomSize[height][width] == '*') {
-				}
-				else
-				{
-					RoomSize[height][width] = 'x';
-				}
-
-			}
-		}
-		cout << endl;
-	}
-
-	//this one comes from top to bottem
-	for (int height = 0; height < m_len; height++) {
-		for (int width = 0; width < m_wid; width++) {
-			if (RoomSize[height + 1][width] == '*') {
-				if (RoomSize[height][width] == '*') {
-				}
-				else
-				{
-					RoomSize[height][width] = 'x';
-				}
-
-			}
-		}
-		cout << endl;
-	}
-	// this one comes bottem to top
-	for (int height = 0; height < m_len; height++) {
-		for (int width = 0; width < m_wid; width++) {
-			if (RoomSize[height + -1][width] == '*') {
-				if (RoomSize[height][width] == '*') {
-				}
-				else
-				{
-					RoomSize[height][width] = 'x';
-				}
-
-			}
-
-		}
-		cout << endl;
-	}
-
-	for (int height = 0; height < m_len; height++) {
-		for (int width = 0; width < m_wid; width++) {
-			if (RoomSize[height][width] == 'x') {
-				RoomSize[height][width] = ' ';
-			}
-
-			cout << " " << RoomSize[height][width];
-		}
-		cout << endl;
-	}
-
-	system("cls");
-	for (int height = 0; height < m_len; height++) {
-		for (int width = 0; width < m_wid; width++) {
-			if (RoomSize[height][width] == '1') {
-				srand(time(NULL));
-				RoomSpawnRate = rand() % 5 + 1;
-				if (RoomSpawnRate == 1) {
-					RoomSize[height][width] = RoomSpawnRate;//'!';
-					RoomSpawnRate = 0;
-				}
-				
-			}
-			cout << " " << RoomSize[height][width];
-		}
-		cout << endl;
-	}
-	cout << RoomSpawnRate;
 }
+
+void MapGen::ClsRest()
+{
+	system("cls");
+}
+
 
