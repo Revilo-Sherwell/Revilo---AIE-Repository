@@ -9,11 +9,12 @@ public:
 public:
 	void ReadFromConsole();
 	void Thetolower();
+	void textmove();
 
-	char North;
-	char South;
-	char East;
-	char West;
+	char* North;
+	char* South;
+	char* East;
+	char* West;
 
 private:
 	char* input_str;

@@ -9,9 +9,9 @@ int main()
 {
 
 	while (true) {
-		MapGen();
-		//String();
-		cin >> x;
+		//MapGen();
+		MapGen mapGen;
+		String thisSring;
 	}
 }
 

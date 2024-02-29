@@ -1,6 +1,7 @@
 #include "MapGen.h"
 #include <iostream>
 
+
 using namespace std;
 
 bool StartingZone = true;
