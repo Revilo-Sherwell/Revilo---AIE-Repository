@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Game.h"
 #include "MapGen.h"
 #include "StringSystem.h"
  
@@ -9,9 +10,7 @@ int main()
 {
 
 	while (true) {
-		//MapGen();
-		MapGen mapGen;
-		String thisSring;
+		Game main;
 	}
 }
 

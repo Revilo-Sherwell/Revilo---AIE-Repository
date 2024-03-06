@@ -10,6 +10,8 @@ public:
 	void MapGenMathSetup(int m_len, int m_wid);
 	void Worldmap(int m_len, int w_wid);
 	void LevelMaps();
+	void MapThingSpawns(int m_len, int m_wid);
+	void ListStuff(int m_len, int m_wid);
 	
 	
 	
@@ -18,8 +20,8 @@ public:
 	char RoomSize[15][15];
 	char worldMap[25][25];
 
-	int xpos = 7;
-	int ypos = 7;
+	int xpos;
+	int ypos;
 	char PlayerSymbol = 'U';
 
 	int min_x;//top left minimum, bottom right maximum

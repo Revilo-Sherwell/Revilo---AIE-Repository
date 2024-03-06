@@ -9,7 +9,6 @@ int RoomSpawnRate = 0;
 
 MapGen::MapGen(){
 	MapSetup();
-	MapGenMathSetup(15, 15);
 }
 
 
@@ -157,16 +156,14 @@ void MapGen::MapGenMathSetup(int m_len, int m_wid)
 		}
 		cout << endl;
 	}
-	RoomSize[xpos][ypos] = PlayerSymbol;
-	ClsRest();
 	cout << endl;
 	srand(time(NULL));
 	for (int height = 0; height < m_len; height++) {
 		for (int width = 0; width < m_wid; width++) {
 			if (RoomSize[height][width] == '1') {
-				RoomSpawnRate = rand() % 15 + 1;
+				RoomSpawnRate = rand() % 25 + 1;
 				if (RoomSpawnRate == 1) {
-					RoomSize[height][width] = RoomSpawnRate;//'!';
+					RoomSize[height][width] = 'X';//'!';
 				}
 				else {
 					RoomSize[height][width] = ' ';
@@ -178,6 +175,11 @@ void MapGen::MapGenMathSetup(int m_len, int m_wid)
 		}
 		cout << endl;
 	}
+	ClsRest();
+
+
+	MapThingSpawns(m_len, m_wid);
+	ListStuff(m_len, m_wid);
 	//Worldmap(15, 25);
 }
 
@@ -187,7 +189,7 @@ void MapGen::Worldmap(int m_len, int w_wid)
 	for (int hight = 0; hight < m_len; hight++) {
 		for (int width = 0; width < w_wid; width++) {
 			worldMap[hight][width] = '1';
-			cout << " " << worldMap[hight][width];
+			cout << ' ' << worldMap[hight][width];
 		}
 		cout << endl;
 	}
@@ -488,6 +490,62 @@ void MapGen::LevelMaps()
 
 
 
+}
+
+void MapGen::MapThingSpawns(int m_len, int m_wid)
+{
+	int EType;
+	srand(time(NULL));
+	for (int height = 0; height < m_len; height++) {
+		for (int width = 0; width < m_wid; width++) {
+			if (RoomSize[height][width] == 'X') {
+				EType = rand() % 4 + 1;
+				switch (EType)
+				{
+				case(1):
+					RoomSize[height][width] = 'E';
+					break;
+				case(2):
+					RoomSize[height][width] = 'G';
+					break;
+				case(3):
+					RoomSize[height][width] = 'M';
+					break;
+				case(4):
+					RoomSize[height][width] = 'T';
+					break;
+				}
+			}
+			cout << " " << RoomSize[height][width];
+		}
+		cout << endl;
+	}
+}
+
+void MapGen::ListStuff(int m_len, int m_wid)
+{
+	int stufflistnum = 1;
+	cout << endl << "All Things Found In the Room" << endl;
+	for (int height = 0; height < m_len; height++) {
+		for (int width = 0; width < m_wid; width++) {
+			if (RoomSize[height][width] == 'T') {
+				cout << stufflistnum << ". " << "Tree" << endl;
+				stufflistnum++;
+			}
+			else if (RoomSize[height][width] == 'E') {
+				cout << stufflistnum << ". " << "Enemy" << endl;
+				stufflistnum++;
+			}
+			else if (RoomSize[height][width] == 'M') {
+				cout << stufflistnum << ". " << "Mana" << endl;
+				stufflistnum++;
+			}
+			else if (RoomSize[height][width] == 'G') {
+				cout << stufflistnum << ". " << "Gold" << endl;
+				stufflistnum++;
+			}
+		}
+	}
 }
 
 void MapGen::ClsRest()

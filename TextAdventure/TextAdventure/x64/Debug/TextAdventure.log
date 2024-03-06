@@ -1,10 +1,5 @@
-﻿  Game.cpp
-C:\Users\s213812\Documents\github rep\Revilo---AIE-Repository\TextAdventure\TextAdventure\Game.cpp(5,7): warning C4101: 'xpos': unreferenced local variable
-C:\Users\s213812\Documents\github rep\Revilo---AIE-Repository\TextAdventure\TextAdventure\Game.cpp(6,7): warning C4101: 'ypos': unreferenced local variable
-  MapGen.cpp
-C:\Users\s213812\Documents\github rep\Revilo---AIE-Repository\TextAdventure\TextAdventure\MapGen.cpp(65,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\s213812\Documents\github rep\Revilo---AIE-Repository\TextAdventure\TextAdventure\MapGen.cpp(163,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  StringSystem.cpp
-  TextAdventure.cpp
-  Generating Code...
-  TextAdventure.vcxproj -> C:\Users\s213812\Documents\github rep\Revilo---AIE-Repository\TextAdventure\x64\Debug\TextAdventure.exe
+﻿  MapGen.cpp
+C:\Users\s213812\Desktop\TextAdventure\TextAdventure\MapGen.cpp(64,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\s213812\Desktop\TextAdventure\TextAdventure\MapGen.cpp(160,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\s213812\Desktop\TextAdventure\TextAdventure\MapGen.cpp(498,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  TextAdventure.vcxproj -> C:\Users\s213812\Desktop\TextAdventure\x64\Debug\TextAdventure.exe
