@@ -11,7 +11,6 @@ MapGen::MapGen(){
 	MapSetup();
 }
 
-
 MapGen::~MapGen()
 {
 }
@@ -558,6 +557,12 @@ void MapGen::ReloadMap(int m_len, int m_wid)
 		cout << " " << endl;
 	}
 	cout << "Ran" << endl;
+}
+
+void MapGen::PraintPlayerPos(int x_pos, int y_pos)
+{
+	RoomSize[x_pos][y_pos] = PlayerSymbol;
+	cout << "PrintPlayer" << endl;
 }
 
 void MapGen::ClsRest()

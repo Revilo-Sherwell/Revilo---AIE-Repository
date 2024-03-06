@@ -13,6 +13,7 @@ public:
 	void MapThingSpawns(int m_len, int m_wid);
 	void ListStuff(int m_len, int m_wid);
 	void ReloadMap(int m_len, int m_wid);
+	void PraintPlayerPos(int x_pos, int y_pos);
 	
 	
 	
@@ -33,9 +34,6 @@ public:
 	char fillCharacter = '*';
 	int RoomStyle;
 
-	//int Pxpos = 7;
-	//int Pxpos = 7;
-	//char* PreSymbol;
 private:
 	int m_gridmaplength;
 	char* m_griddata;

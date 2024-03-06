@@ -20,6 +20,7 @@ public:
 	int Gold = 0;
 
 	int MapState = 0;
+	char Movementkey = 'k';
 
 private:
 	MapGen map;

@@ -22,6 +22,14 @@ void Game::Run() {
 		PlayerXpos = map.xpos;
 		PlayerYpos = map.ypos;
 
+		cout << PlayerXpos << endl;
+		if (Movementkey == 'w') {
+			PlayerXpos += 1;
+		}
+		
+
+		map.PraintPlayerPos(PlayerXpos, PlayerYpos);
+
 		if (StartMapgen == true) {
 			map.MapGenMathSetup(15, 15);
 			StartMapgen = false;
@@ -34,8 +42,11 @@ void Game::Run() {
 			cout << "Same Map Loaded" << endl;
 			map.ReloadMap(15, 15);
 		}
-
-		cin >> MapState;
+		
+		MapState = 1;
+		cin >> Movementkey;
+		//cin >> MapState;
+	
 	}
 	//String str;
 }
