@@ -97,7 +97,7 @@ void MapGen::MapGenMathSetup(int m_len, int m_wid)
 		}
 		cout << endl;
 	}
-
+	ClsRest();
 	//this one come left to right
 	for (int height = 0; height < m_len; height++) {
 		for (int width = 0; width < m_wid; width++) {
@@ -113,7 +113,7 @@ void MapGen::MapGenMathSetup(int m_len, int m_wid)
 		}
 		cout << endl;
 	}
-
+	ClsRest();
 	//this one comes from top to bottem
 	for (int height = 0; height < m_len; height++) {
 		for (int width = 0; width < m_wid; width++) {
@@ -145,17 +145,18 @@ void MapGen::MapGenMathSetup(int m_len, int m_wid)
 		}
 		cout << endl;
 	}
-
+	ClsRest();
 	for (int height = 0; height < m_len; height++) {
 		for (int width = 0; width < m_wid; width++) {
 			if (RoomSize[height][width] == 'x') {
 				RoomSize[height][width] = ' ';
 			}
 
-			cout << " " << RoomSize[height][width];
+			//cout << " " << RoomSize[height][width];
 		}
-		cout << endl;
+		//cout << endl;
 	}
+	//ClsRest();
 	cout << endl;
 	srand(time(NULL));
 	for (int height = 0; height < m_len; height++) {
@@ -176,11 +177,9 @@ void MapGen::MapGenMathSetup(int m_len, int m_wid)
 		cout << endl;
 	}
 	ClsRest();
-
-
 	MapThingSpawns(m_len, m_wid);
 	ListStuff(m_len, m_wid);
-	//Worldmap(15, 25);
+	Worldmap(5, 5);
 }
 
 void MapGen::Worldmap(int m_len, int w_wid)
@@ -494,6 +493,8 @@ void MapGen::LevelMaps()
 
 void MapGen::MapThingSpawns(int m_len, int m_wid)
 {
+
+	cout << "\n Gold:0" << "   " << "Mana:50" << "   " << "Health:100\n" << endl;
 	int EType;
 	srand(time(NULL));
 	for (int height = 0; height < m_len; height++) {
@@ -548,9 +549,18 @@ void MapGen::ListStuff(int m_len, int m_wid)
 	}
 }
 
+void MapGen::ReloadMap(int m_len, int m_wid)
+{
+	for (int height = 0; height < m_len; height++) {
+		for (int width = 0; width < m_wid; width++) {
+			cout << " " << RoomSize[height][width];
+		}
+		cout << " " << endl;
+	}
+	cout << "Ran" << endl;
+}
+
 void MapGen::ClsRest()
 {
 	system("cls");
 }
-
-

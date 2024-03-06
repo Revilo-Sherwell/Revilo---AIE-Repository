@@ -12,13 +12,15 @@ public:
 	void LevelMaps();
 	void MapThingSpawns(int m_len, int m_wid);
 	void ListStuff(int m_len, int m_wid);
+	void ReloadMap(int m_len, int m_wid);
 	
 	
 	
 	void ClsRest();
 
+	
 	char RoomSize[15][15];
-	char worldMap[25][25];
+	char worldMap[5][5];
 
 	int xpos;
 	int ypos;

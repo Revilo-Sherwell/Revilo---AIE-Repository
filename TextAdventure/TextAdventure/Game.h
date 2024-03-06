@@ -1,9 +1,13 @@
 #pragma once
+#include "MapGen.h"
 class Game
 {
 public:
 	Game();
 	~Game();
+	
+public:
+	void Run();
 
 public:
 
@@ -15,8 +19,10 @@ public:
 	int ManaCount = 50;
 	int Gold = 0;
 
-	int MapState;
+	int MapState = 0;
 
 private:
+	MapGen map;
+	bool isPlaying = true;
 };
 

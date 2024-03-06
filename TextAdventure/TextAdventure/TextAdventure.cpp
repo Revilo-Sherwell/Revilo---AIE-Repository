@@ -8,10 +8,9 @@ int x;
 
 int main()
 {
+	Game main;
+	main.Run();
 
-	while (true) {
-		Game main;
-	}
 }
 
 
