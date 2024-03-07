@@ -13,8 +13,6 @@ public:
 	void MapThingSpawns(int m_len, int m_wid);
 	void ListStuff(int m_len, int m_wid);
 	void ReloadMap(int m_len, int m_wid);
-	void PraintPlayerPos(int x_pos, int y_pos);
-	
 	
 	
 	void ClsRest();
@@ -33,6 +31,7 @@ public:
 	int max_y;
 	char fillCharacter = '*';
 	int RoomStyle;
+	int ThingsID = 0;
 
 private:
 	int m_gridmaplength;

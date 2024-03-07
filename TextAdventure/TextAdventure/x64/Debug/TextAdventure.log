@@ -1,2 +1,5 @@
-﻿  Game.cpp
-  TextAdventure.vcxproj -> C:\Users\olive\OneDrive\Documents\GitHub\Revilo---AIE-Repository\TextAdventure\x64\Debug\TextAdventure.exe
+﻿  MapGen.cpp
+C:\Users\s213812\Documents\GitHub\Revilo---AIE-Repository\TextAdventure\TextAdventure\MapGen.cpp(63,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\s213812\Documents\GitHub\Revilo---AIE-Repository\TextAdventure\TextAdventure\MapGen.cpp(160,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\s213812\Documents\GitHub\Revilo---AIE-Repository\TextAdventure\TextAdventure\MapGen.cpp(498,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  TextAdventure.vcxproj -> C:\Users\s213812\Documents\GitHub\Revilo---AIE-Repository\TextAdventure\x64\Debug\TextAdventure.exe

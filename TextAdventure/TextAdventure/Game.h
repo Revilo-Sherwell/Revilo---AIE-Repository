@@ -8,6 +8,7 @@ public:
 	
 public:
 	void Run();
+	void ThingsIDS();
 
 public:
 
@@ -19,8 +20,10 @@ public:
 	int ManaCount = 50;
 	int Gold = 0;
 
+	int ItemIdNums = 0;
 	int MapState = 0;
 	char Movementkey = 'k';
+
 
 private:
 	MapGen map;

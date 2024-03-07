@@ -552,18 +552,44 @@ void MapGen::ReloadMap(int m_len, int m_wid)
 {
 	for (int height = 0; height < m_len; height++) {
 		for (int width = 0; width < m_wid; width++) {
-			cout << " " << RoomSize[height][width];
+
+			if (height == xpos && width == ypos)
+			{
+				cout << " " << PlayerSymbol;
+				if (RoomSize[height][width] == 'E') {
+					ThingsID = 1;
+				}
+				else if (RoomSize[height][width] == 'G') {
+					ThingsID = 2;
+				}
+				else if (RoomSize[height][width] == 'M') {
+					ThingsID = 3;
+				}
+				else if (RoomSize[height][width] == 'T') {
+					ThingsID = 4;
+				}
+				else if (RoomSize[height][width] == 'O') {
+					ThingsID = 5;
+				}
+				else
+				{
+					ThingsID = 0;
+				}
+
+			}
+			else
+			{
+				cout << " " << RoomSize[height][width];
+			}
+			
 		}
 		cout << " " << endl;
 	}
-	cout << "Ran" << endl;
+	ListStuff(m_len, m_wid);	
+
+
 }
 
-void MapGen::PraintPlayerPos(int x_pos, int y_pos)
-{
-	RoomSize[x_pos][y_pos] = PlayerSymbol;
-	cout << "PrintPlayer" << endl;
-}
 
 void MapGen::ClsRest()
 {
