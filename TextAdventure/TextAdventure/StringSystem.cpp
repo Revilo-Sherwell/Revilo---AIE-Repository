@@ -16,7 +16,7 @@ Stringutil::Stringutil(const char* c) {
 
 	cout << c;
 }
-Stringutil::Stringutil(Stringutil& st) {
+Stringutil::Stringutil(const Stringutil& st) {
 	m_str = new char[(strlen(st.m_str)) + 1];
 	strcpy_s(m_str, (strlen(st.m_str)) + 1, st.m_str);
 }
@@ -32,8 +32,8 @@ int Stringutil::Length() {
 // All the Find Stuff Finds
 int Stringutil::StartIndexfindString(size_t _startindex, const char* c)
 {
-	if (strlen(c) < Length()) {
-		for (int i = _startindex; i < Length() - strlen(c); i++) {
+	if (strlen(c) <= Length()) {
+		for (int i = _startindex; i < Length() - strlen(c) + 1; i++) {
 			if (CompaereAt(i, c)) {
 				return i;
 			}

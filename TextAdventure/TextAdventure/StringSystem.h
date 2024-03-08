@@ -5,7 +5,7 @@ class Stringutil
 public:
 	Stringutil();
 	Stringutil(const char* c);// array that set the size of the text
-	Stringutil(Stringutil& st); //Copy Constructor
+	Stringutil(const Stringutil& st); //Copy Constructor
 	~Stringutil();
 
 public:

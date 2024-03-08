@@ -1,5 +1,9 @@
 #include "MapGen.h"
+#include "itemclass.h"
 #include <iostream>
+#include "Gold.h"
+#include "Tree.h"
+#include "Mana.h"
 
 
 using namespace std;
@@ -175,10 +179,11 @@ void MapGen::MapGenMathSetup(int m_len, int m_wid)
 		}
 		cout << endl;
 	}
+	
 	ClsRest();
 	MapThingSpawns(m_len, m_wid);
-	ListStuff(m_len, m_wid);
-	Worldmap(5, 5);
+	ReloadMap(15, 15);
+	//Worldmap(5, 5);
 }
 
 void MapGen::Worldmap(int m_len, int w_wid)
@@ -492,8 +497,11 @@ void MapGen::LevelMaps()
 
 void MapGen::MapThingSpawns(int m_len, int m_wid)
 {
+	for (itemclass* item : items) {
+		delete item;
+	}
+	items.clear();
 
-	cout << "\n Gold:0" << "   " << "Mana:50" << "   " << "Health:100\n" << endl;
 	int EType;
 	srand(time(NULL));
 	for (int height = 0; height < m_len; height++) {
@@ -507,12 +515,15 @@ void MapGen::MapThingSpawns(int m_len, int m_wid)
 					break;
 				case(2):
 					RoomSize[height][width] = 'G';
+					items.push_back(new Gold(height, width));
 					break;
 				case(3):
 					RoomSize[height][width] = 'M';
+					items.push_back(new Mana(height, width));
 					break;
 				case(4):
 					RoomSize[height][width] = 'T';
+					items.push_back(new Tree(height, width));
 					break;
 				}
 			}
@@ -550,6 +561,7 @@ void MapGen::ListStuff(int m_len, int m_wid)
 
 void MapGen::ReloadMap(int m_len, int m_wid)
 {
+	ClsRest();
 	for (int height = 0; height < m_len; height++) {
 		for (int width = 0; width < m_wid; width++) {
 
@@ -585,9 +597,15 @@ void MapGen::ReloadMap(int m_len, int m_wid)
 		}
 		cout << " " << endl;
 	}
-	ListStuff(m_len, m_wid);	
+	//ListStuff(m_len, m_wid);	
 
 
+}
+
+void MapGen::RemoveVectorData(itemclass* item)
+{
+	items.erase(std::remove(items.begin(), items.end(), item));
+	delete item;
 }
 
 

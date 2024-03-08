@@ -1,4 +1,7 @@
 #pragma once
+#include <vector>
+#include "itemclass.h"
+
 class MapGen
 {
 public:
@@ -13,6 +16,7 @@ public:
 	void MapThingSpawns(int m_len, int m_wid);
 	void ListStuff(int m_len, int m_wid);
 	void ReloadMap(int m_len, int m_wid);
+	void RemoveVectorData(itemclass* item);
 	
 	
 	void ClsRest();
@@ -33,8 +37,11 @@ public:
 	int RoomStyle;
 	int ThingsID = 0;
 
+	std::vector<itemclass*> items;
+
 private:
 	int m_gridmaplength;
 	char* m_griddata;
+
 };
 

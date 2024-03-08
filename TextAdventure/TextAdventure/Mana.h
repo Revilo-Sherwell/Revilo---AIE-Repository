@@ -4,7 +4,7 @@
 class Mana : public itemclass
 {
 public:
-	 Mana();
+	 Mana(int a_y, int a_x);
 	~Mana();
 public:
 	void Description() const override;

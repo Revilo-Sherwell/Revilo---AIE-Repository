@@ -8,7 +8,7 @@ public:
 	~Player();
 	bool FindSpell(Stringutil other);
 private:
-	std::vector< Stringutil> spells = {"Spawn","B","c"};
+	std::vector<Stringutil> spells = {"freeze","teleport","heal"};
 };
 
 

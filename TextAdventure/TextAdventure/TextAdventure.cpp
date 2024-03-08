@@ -8,8 +8,20 @@ int x;
 
 int main()
 {
-	Game main;
-	main.Run();
+	cout << "The labyrinth" << endl;
+	cout << endl;
+
+	cout << "-PLAY-" << endl;
+	cout << endl;
+	cout << "-CREDITS-" << endl;
+	cout << endl;
+	cin >> x;
+
+	if (x == 1) {
+		Game main;
+		main.Run();
+	}
+	
 
 }
 

@@ -3,7 +3,7 @@
 class Tree : public itemclass
 {
 public:
-	Tree();
+	Tree(int a_y, int a_x);
 	~Tree();
 
 public:

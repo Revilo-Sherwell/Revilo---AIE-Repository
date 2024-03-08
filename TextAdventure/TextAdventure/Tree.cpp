@@ -2,9 +2,10 @@
 #include <iostream>
 using namespace std;
 
-Tree::Tree()
+Tree::Tree(int a_y, int a_x)
 {
-	
+	x = a_x;
+	y = a_y;
 }
 
 Tree::~Tree()
