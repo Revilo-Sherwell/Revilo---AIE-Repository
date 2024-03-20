@@ -539,7 +539,8 @@ void MapGen::ListStuff(int m_len, int m_wid)
 	cout << "Commands List" << endl ;
 	cout << " Type Move (Up,Down,Left,Right) To Move Around The Map" << endl;
 	cout << " (Use) When On Top On A Spawn Item" << endl;
-	cout << " (Spell List) To See All Spells You Have Then Do (Spell Abitiy) To Use A Spell" << endl;
+	cout << " (Spell List) To See All Spells" << endl
+	cout << " (Spell Abitiy) To Use A Spell" << endl;
 	cout << "------------------------------------------------------------------------------" << endl;
 
 
