@@ -535,6 +535,14 @@ void MapGen::MapThingSpawns(int m_len, int m_wid)
 
 void MapGen::ListStuff(int m_len, int m_wid)
 {
+	cout << "------------------------------------------------------------------------------" << endl;
+	cout << "Commands List" << endl ;
+	cout << " Type Move (Up,Down,Left,Right) To Move Around The Map" << endl;
+	cout << " (Use) When On Top On A Spawn Item" << endl;
+	cout << " (Spell List) To See All Spells You Have Then Do (Spell Abitiy) To Use A Spell" << endl;
+	cout << "------------------------------------------------------------------------------" << endl;
+
+
 	int stufflistnum = 1;
 	cout << endl << "All Things Found In the Room" << endl;
 	for (int height = 0; height < m_len; height++) {

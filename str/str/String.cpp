@@ -7,7 +7,7 @@ using namespace std;
 
 
 Stringutil::Stringutil() {
-	m_str = new char[] {"Hello World"};
+	m_str = new char{ '\0' };
 }
 
 Stringutil::Stringutil(const char* c) {
@@ -16,24 +16,24 @@ Stringutil::Stringutil(const char* c) {
 
 	cout << c;
 }
-Stringutil::Stringutil(Stringutil& st){
+Stringutil::Stringutil(const Stringutil& st) {
 	m_str = new char[(strlen(st.m_str)) + 1];
-	strcpy_s(m_str, (strlen(st.m_str)) + 1, st.m_str);	
+	strcpy_s(m_str, (strlen(st.m_str)) + 1, st.m_str);
 }
 
-Stringutil::~Stringutil(){
+Stringutil::~Stringutil() {
 	delete[] m_str;
 }
 
-int Stringutil::Length(){
+int Stringutil::Length() {
 	return strlen(m_str);
 }
 
 // All the Find Stuff Finds
-int Stringutil::StartIndexfindString(size_t _startindex,const char* c)
+int Stringutil::StartIndexfindString(size_t _startindex, const char* c)
 {
-	if (strlen(c) < Length()) {
-		for (int i = _startindex; i < Length() - strlen(c); i++) {
+	if (strlen(c) <= Length()) {
+		for (int i = _startindex; i < Length() - strlen(c) + 1; i++) {
 			if (CompaereAt(i, c)) {
 				return i;
 			}
@@ -47,7 +47,7 @@ int Stringutil::find(const char* c)
 	return StartIndexfindString(0, c);
 }
 
-bool Stringutil::CompaereAt(int index,const char* c)
+bool Stringutil::CompaereAt(int index, const char* c)
 {
 	for (int i = 0; i < strlen(c); i++) {
 		if (m_str[index] != c[i]) {
@@ -161,7 +161,7 @@ void Stringutil::ReadFromConsole() {
 	std::cin.clear();
 	std::cin.ignore(std::cin.rdbuf()->in_avail());
 	std::cin.getline(m_str, 100);
-	
+
 }
 
 
@@ -172,17 +172,25 @@ void Stringutil::ReadFromConsole() {
 //---------------------------------------
 bool Stringutil::operator==(const Stringutil& other)
 {
-	if (strcmp(other.m_str, m_str) == 0){
+	if (strcmp(other.m_str, m_str) == 0) {
 		return true;
 	}
-	else{
+	else {
 		return false;
 	}
 }
 
 bool Stringutil::operator<(const Stringutil& other)
 {
-	if (strcmp(other.m_str, m_str) == 1); {
+	if (strcmp(other.m_str, m_str) == 1) {
+		return true;
+	}
+	return false;
+}
+
+bool Stringutil::operator<=(const Stringutil& other)
+{
+	if (strcmp(other.m_str, m_str) >= 0) {
 		return true;
 	}
 	return false;
@@ -204,6 +212,6 @@ void Stringutil::operator=(const Stringutil& other)
 
 
 
-char* Stringutil::CStr(){
+char* Stringutil::CStr() {
 	return m_str;
 }

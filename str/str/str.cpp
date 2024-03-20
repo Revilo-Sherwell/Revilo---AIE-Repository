@@ -30,25 +30,11 @@ int main()
 	file << "The Date is " << day << "/" << month << "/" << year + 1900 << endl;
 	file << "-----------------------------------" << endl;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	// Picking What Num To Look at In the Data
-	int index = 0;
-	cout << "Your Word Is Hello World" << endl;
+	int index = 1;
+	
 	file << "give a num For the Letter In the Word ";
-	cout << "give a num For the Letter In the Word ";
-	cin >> index;
+
 	file << index;
 	file << " " << endl;
 	
@@ -58,68 +44,139 @@ int main()
 	Stringutil st("Hello ");
 	Stringutil st2("World");
 
-	file << "-----------------------------------" << endl;
-	file << "All The True And False" << endl;
-	if (st.Length() == 7){
+	if (st.Length() == 6){
 
-		cout << "Length() is True" << endl;
+		file << "Length() is True" << endl;
 		SeccsfulRate++;
 	}
 	else file << "Length() is False" << endl;
+	file << "Letters Long:" << st.Length() << endl;
 
-	if (st.CharacterAt() 1 == 'H') {
-		file << "CharacterAt() is True" << endl;
-		SeccsfulRate++;
+	if (st.CharacterAt(0) -1 == 'H') {
+		file << "CharacterAt() is false" << endl;
 	}
 	else file << "CharacterAt() is True" << endl;
-	file << "-----------------------------------" << endl;
+	SeccsfulRate++;
+	
+	if (st.CharacterAt(index) == 'e') {
+		file << "Number At Letter() Is True" << endl;
+		SeccsfulRate++;
+	}
+	else file << "Number At Letter() Is False" << endl;
 
+	if (st.EqualTo(st2)) {
+		file << "EqualTo() False" << endl;
+	}
+	else {
+		file << "EqualTo() True" << endl;
+		SeccsfulRate++;
+	}
 
-
-	file << " " << endl;
-	file << "The Number You Pick Go With the Letter: " << st.CharacterAt(index) << endl;
-	file << "Your Word is :" << st.Length() << " Letters Long" << endl;
-	file << "You Have :" << st.EqualTo(st2) << " Matching Words" << endl;
-	file << "-----------------------------------" << endl;
 
 	st.Append(st2);
-	file << st.CStr();
-	file << st.find("Hello world") << endl;
-	file << "-----------------------------------" << endl;
+
+	if (st.EqualTo("Hello World")) {
+		file << "Append() True" << endl;
+		SeccsfulRate++;
+	}
+	else file << "Append() False" << endl;
+	
+	if (st.find("Hello") == 0) {
+		file << "Find() True" << endl;
+		SeccsfulRate++;
+	}
+	else file << "Find() False" << endl;
+
 
 	st.Replace("Hello", "TOD");
-	file << st.CStr();
-	file << "\n-----------------------------------" << endl;
-
-	file << "Added World To the Frount Of the Word" << endl;
-	st.Prpend(st2);
-	file << st.CStr();
-	file << "\n-----------------------------------" << endl;
-
-	file << "Upper Cased All the Letters" << endl;
-	st.Thetoupper();
-	file << st.CStr();
-	file << "\n-----------------------------------" << endl;
-	file << " " << endl;
-	file << "Lower Cased All the Letters" << endl;
-	st.Thetolower();
-	file << st.CStr();
-	file << "\n-----------------------------------" << endl;
-	file << "All The Operators\n";
 	
-	file << (st == st2) << endl;
-	file << (st < st2) << endl;
-	file << st[3] << endl;
-	st = st2;
-	file << st.CStr() << endl;
-	file << "\n-----------------------------------" << endl;
+	if (st.EqualTo("TOD World")) {
+		file << "Replace() True" << endl;
+		SeccsfulRate++;
+	}
+	else file << "Replace() False" << endl;
+	
+	st.Prpend(st2);
 
+	if (st.EqualTo("WorldTOD World")) {
+		file << "Prpend() True" << endl;
+		SeccsfulRate++;
+	}
+	else file << "Prpend() False" << endl;
+	
+
+	
+	st.Thetoupper();
+
+	if (st.EqualTo("WORLDTOD WORLD")) {
+		file << "ToUpper() True" << endl;
+		SeccsfulRate++;
+	}
+	else file << "ToUpper() False" << endl;
+
+
+	st.Thetolower();
+
+	if (st.EqualTo("worldtod world")) {
+		file << "ToLower() True" << endl;
+		SeccsfulRate++;
+	}
+	else file << "ToLower() False" << endl;
+
+
+
+
+
+
+
+	if (st == st2) {
+		file << "Operator ==() False" << endl;
+	}
+	else {
+		file << "Operator ==() True" << endl;
+		SeccsfulRate++;
+	}
+
+	if (st < st2) {
+		file << "Operator <() False" << endl;
+		
+	}
+	else {
+		file << "Operator <() True" << endl;
+		SeccsfulRate++;
+	}
+
+	if (st[3] == 'l') {
+		file << "Operator []() True" << endl;
+		SeccsfulRate++;
+	}
+	else file << "Operator []() False" << endl;
+
+	st = st2;
+
+	if (st.EqualTo(st2)) {
+		file << "Operator =() True" << endl;
+		SeccsfulRate++;
+	}
+	else file << "Operator =() False" << endl;
+	
+
+
+
+
+
+
+	
+	
+	system("cls");
 	cout << "\nType Somthing into Console To Change The String " << endl;
-	file << "Type Somthing into Console To Change The String " << endl;
+	file << "\nType Somthing into Console To Change The String " << endl;
+	
 	st.ReadFromConsole();
 	st.Writetoconsole();
 	file << st.CStr() << endl;
-	file << "\n\n-----------------------------------" << endl;
+	file << "Successful rate is " << SeccsfulRate << "/14" << endl;
+	file << "\n-----------------------------------" << endl;
 	file << "file Closed !!" << endl;
 	file << "-----------------------------------" << endl;
 
